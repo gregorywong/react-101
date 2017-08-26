@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Headline = () => {
     return <h1 className="title">Welcome to the React world!</h1>
@@ -14,8 +15,8 @@ const Message = (props) => {
 }
 
 Message.propTypes = {
-    name: React.PropTypes.string,
-    age: React.PropTypes.number.isRequired
+    name: PropTypes.string,
+    age: PropTypes.number.isRequired
 }
 
 const App = () => {
