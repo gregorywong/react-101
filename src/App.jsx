@@ -1,31 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Headline = () => {
-    return <h1 className="title">Welcome to the React world!</h1>
-}
-
-const Greeting = (props) => {
-    return <p>You will love it {props.name} ({props.age})!</p>
-}
-
-const Message = (props) => {
-    const {name, age} = props;
-    return <p>My name is {name} ({age})!</p>
-}
-
-Message.propTypes = {
-    name: PropTypes.string,
-    age: PropTypes.number.isRequired
-}
-
 export class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            buyItems: ['milk', 'bread', 'bananas']
+
+        }
+    }
+
     render() {
+        const {buyItems} = this.state;
         return (
             <div>
-                <Headline />
-                <Greeting name="John" age="25"/>
-                <Message name="Sammy" age={30}/>
+                <h1>Shopping List</h1>
+                {
+                    buyItems.map(item => {
+                        return <p key={item}>{item}</p>
+                    })
+                }
             </div>
         )
     }
