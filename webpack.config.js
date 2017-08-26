@@ -11,7 +11,7 @@ var cssProd = ExtractTextPlugin.extract({
 var cssConfig = isProd ? cssProd : cssDev;
 
 module.exports = {
-    entry: './src/app.jsx',
+    entry: './src/index.jsx',
     output: {
         path: __dirname + '/dist',
         filename: 'app.bundle.js'
