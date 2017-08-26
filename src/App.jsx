@@ -19,14 +19,16 @@ Message.propTypes = {
     age: PropTypes.number.isRequired
 }
 
-const App = () => {
-    return (
-        <div>
-            <Headline />
-            <Greeting name="John" age="25"/>
-            <Message name="Sam" age={25}/>
-        </div>
-    )
+export class App extends React.Component {
+    render() {
+        return (
+            <div>
+                <Headline />
+                <Greeting name="John" age="25"/>
+                <Message name="Sammy" age={30}/>
+            </div>
+        )
+    }
 }
 
 export default App;
