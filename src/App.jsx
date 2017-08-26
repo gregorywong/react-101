@@ -13,6 +13,11 @@ const Message = (props) => {
     return <p>My name is {name} ({age})!</p>
 }
 
+Message.propTypes = {
+    name: React.PropTypes.string,
+    age: React.PropTypes.number.isRequired
+}
+
 const App = () => {
     return (
         <div>
@@ -21,11 +26,6 @@ const App = () => {
             <Message name="Sam" age={25}/>
         </div>
     )
-}
-
-Message.propTypes = {
-    name: React.PropTypes.string,
-    age: React.PropTypes.number.isRequired
 }
 
 export default App;
