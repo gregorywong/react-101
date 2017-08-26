@@ -9,7 +9,6 @@ export class App extends React.Component {
     super(props);
     this.state = {
       buyItems: ['milk', 'bread', 'bananas']
-
     }
   }
 
@@ -17,11 +16,21 @@ export class App extends React.Component {
     const { buyItems } = this.state;
     return (
       <div>
-        <header className="text-center my-5">
+        <header className="text-center my-4">
           <img width="200px" src={image} />
           <h1>Shopping List</h1>
         </header>
+
         <div className="container">
+
+          <form className="form-inline justify-content-center my-3">
+            <div className="form-group">
+              <label className="sr-only" htmlFor="newItemInput">Add New Item</label>
+              <input type="text" placeholder="Bread" className="form-control" id="newItemInput" />
+            </div>
+            <button type="submit" className="btn btn-primary">Add</button>
+          </form>
+
           <div className="card">
             <div className="card-block">
               <table className="table">
