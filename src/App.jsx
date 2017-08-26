@@ -12,6 +12,18 @@ export class App extends React.Component {
     }
   }
 
+  addItem(e) {
+    e.preventDefault();
+    const {buyItems} = this.state;
+    const newItem = this.newItem.value;
+
+    this.setState({
+      buyItems: [...this.state.buyItems, newItem]
+    });
+
+    this.addForm.reset();
+  }
+
   render() {
     const { buyItems } = this.state;
     return (
@@ -23,10 +35,10 @@ export class App extends React.Component {
 
         <div className="container">
 
-          <form className="form-inline justify-content-center my-3">
+          <form ref={(input) => {this.addForm = input}} className="form-inline justify-content-center my-3" onSubmit={(e) => {this.addItem(e)}}>
             <div className="form-group">
               <label className="sr-only" htmlFor="newItemInput">Add New Item</label>
-              <input type="text" placeholder="Bread" className="form-control" id="newItemInput" />
+              <input ref={(input) => {this.newItem = input}} type="text" placeholder="Bread" className="form-control" id="newItemInput" />
             </div>
             <button type="submit" className="btn btn-primary">Add</button>
           </form>
