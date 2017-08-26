@@ -17,34 +17,38 @@ export class App extends React.Component {
         const {buyItems} = this.state;
         return (
             <div>
-                <header>
+                <header className="text-center my-5">
                     <img width="200px" src={image} />
                     <h1>Shopping List</h1>
                 </header>
-                <div className="content">
-                    <table className="table">
-                        <caption>Shopping List</caption>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Item</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                buyItems.map(item => {
-                                    return (
-                                        <tr key={item}>
-                                            <th scope="row">1</th>
-                                            <td>{item}</td>
-                                            <td>Button</td>
-                                        </tr>
-                                    )
-                                })
-                            }
-                        </tbody>
-                    </table>
+                <div className="container">
+                    <div className="card">
+                        <div className="card-block">
+                            <table className="table">
+                                <caption className="top-caption mx-3">Shopping List</caption>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Item</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        buyItems.map(item => {
+                                            return (
+                                                <tr key={item}>
+                                                    <th scope="row">1</th>
+                                                    <td>{item}</td>
+                                                    <td>Button</td>
+                                                </tr>
+                                            )
+                                        })
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

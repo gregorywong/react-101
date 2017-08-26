@@ -1,6 +1,7 @@
 body {
-    background-color: #EEE;
-    p {
-        color: black;
-    }
+    background-color: #EEE !important;
+}
+
+.top-caption {
+    caption-side: top;
 }
