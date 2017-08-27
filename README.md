@@ -1,5 +1,5 @@
-# react-101
-Going through the steps in the Ihatetomatoes React 101 video tutorial.
+# shopping-list
+Created by following the steps in the Ihatetomatoes React 101 video tutorial.
 
 ## How to use the files?
 
