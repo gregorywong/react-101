@@ -16,7 +16,7 @@ export class App extends React.Component {
   addItem(e) {
     e.preventDefault();
     const {buyItems, message} = this.state;
-    const newItem = this.newItem.value;
+    const newItem = this.newItem.value.toLowerCase();
 
     if (buyItems.includes(newItem)) {
       this.setState({
@@ -73,13 +73,13 @@ export class App extends React.Component {
       <div>
         <header className="text-center my-4">
           <img width="200px" src={image} />
-          <h1>Shopping List</h1>
+          <h1 className="mt-2">Shopping List</h1>
         </header>
 
         <form ref={(input) => { this.addForm = input }} className="form-inline justify-content-center my-3" onSubmit={(e) => { this.addItem(e) }}>
           <div className="form-group">
             <label className="sr-only" htmlFor="newItemInput">Add New Item</label>
-            <input ref={(input) => { this.newItem = input }} type="text" placeholder="Bread" className="form-control" id="newItemInput" />
+            <input ref={(input) => { this.newItem = input }} type="text" placeholder="Enter item here" className="form-control" id="newItemInput" />
           </div>
           <button type="submit" className="btn btn-primary">Add</button>
         </form>
@@ -95,7 +95,7 @@ export class App extends React.Component {
                 {
                   buyItems.length > 0 &&
                   <table className="table">
-                    <caption className="top-caption mx-3">Shopping List</caption>
+                    <caption className="top-caption mx-3">Get in loser, we're going shopping!</caption>
                     <thead>
                       <tr>
                         <th>#</th>
