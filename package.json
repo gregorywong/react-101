@@ -1,7 +1,7 @@
 {
-  "name": "react-101",
+  "name": "shopping-list",
   "version": "1.0.0",
-  "description": "Trying out the React-101 video tutorial.",
+  "description": "Created by following the steps from the React-101 video tutorial.",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
