@@ -38,6 +38,10 @@ export class App extends React.Component {
     this.addForm.reset();
   }
 
+  removeItem(item) {
+    console.log('remove ' + item);
+  }
+
   render() {
     const { buyItems, message } = this.state;
     return (
@@ -47,44 +51,49 @@ export class App extends React.Component {
           <h1>Shopping List</h1>
         </header>
 
-        <div className="container">
+        <form ref={(input) => { this.addForm = input }} className="form-inline justify-content-center my-3" onSubmit={(e) => { this.addItem(e) }}>
+          <div className="form-group">
+            <label className="sr-only" htmlFor="newItemInput">Add New Item</label>
+            <input ref={(input) => { this.newItem = input }} type="text" placeholder="Bread" className="form-control" id="newItemInput" />
+          </div>
+          <button type="submit" className="btn btn-primary">Add</button>
+        </form>
 
-          <form ref={(input) => { this.addForm = input }} className="form-inline justify-content-center my-3" onSubmit={(e) => { this.addItem(e) }}>
-            <div className="form-group">
-              <label className="sr-only" htmlFor="newItemInput">Add New Item</label>
-              <input ref={(input) => { this.newItem = input }} type="text" placeholder="Bread" className="form-control" id="newItemInput" />
-            </div>
-            <button type="submit" className="btn btn-primary">Add</button>
-          </form>
-
-          <div className="card">
-            <div className="card-block">
-              {
-                message !== '' && <div className="message text-center text-danger mt-3">{message}</div>
-              }
-              <table className="table">
-                <caption className="top-caption mx-3">Shopping List</caption>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Item</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    buyItems.map(item => {
-                      return (
-                        <tr key={item}>
-                          <th scope="row">1</th>
-                          <td>{item}</td>
-                          <td>Button</td>
-                        </tr>
-                      )
-                    })
-                  }
-                </tbody>
-              </table>
+        <div className="row">
+          <div className="col-sm-8 col-md-7 col-lg-6 mx-auto">
+            <div className="card">
+              <div className="card-block">
+                {
+                  message !== '' && <div className="message text-center text-danger mt-3">{message}</div>
+                }
+                <table className="table">
+                  <caption className="top-caption mx-3">Shopping List</caption>
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Item</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                      buyItems.map(item => {
+                        return (
+                          <tr key={item}>
+                            <th scope="row">1</th>
+                            <td>{item}</td>
+                            <td className="">
+                              <button onClick={e => this.removeItem(item)} type="button" className="btn btn-small btn-danger">
+                                Remove
+                            </button>
+                            </td>
+                          </tr>
+                        )
+                      })
+                    }
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
