@@ -1,7 +1,7 @@
 {
-  "name": "markdown-previewer",
+  "name": "react-101",
   "version": "1.0.0",
-  "description": "Markdown previewer for freeCodeCamp.",
+  "description": "Trying out the React-101 video tutorial.",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
