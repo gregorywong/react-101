@@ -14,7 +14,7 @@ module.exports = {
     entry: 
     {
         bootstrap: 'bootstrap-loader',
-        index: './src/index.jsx'
+        app: './src/index.jsx'
     },
     output: {
         path: __dirname + '/dist',
