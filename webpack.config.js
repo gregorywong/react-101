@@ -55,7 +55,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Markdown Previewer',
+            title: 'Shopping List',
             minify: {
                 collapseWhitespace: true
             },
