@@ -8,24 +8,38 @@ export class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      buyItems: ['milk', 'bread', 'bananas']
+      buyItems: ['milk', 'bread', 'bananas'],
+      message: ''
     }
   }
 
   addItem(e) {
     e.preventDefault();
-    const {buyItems} = this.state;
+    const {buyItems, message} = this.state;
     const newItem = this.newItem.value;
 
-    this.setState({
-      buyItems: [...this.state.buyItems, newItem]
-    });
+    if (buyItems.includes(newItem)) {
+      this.setState({
+        message: 'This item is already on the list.'
+      });
+    }
+    else if (newItem !== '') {
+      this.setState({
+        buyItems: [...this.state.buyItems, newItem],
+        message: ''
+      });
+    }
+    else {
+      this.setState({
+        message: ''
+      });
+    }
 
     this.addForm.reset();
   }
 
   render() {
-    const { buyItems } = this.state;
+    const { buyItems, message } = this.state;
     return (
       <div>
         <header className="text-center my-4">
@@ -35,16 +49,19 @@ export class App extends React.Component {
 
         <div className="container">
 
-          <form ref={(input) => {this.addForm = input}} className="form-inline justify-content-center my-3" onSubmit={(e) => {this.addItem(e)}}>
+          <form ref={(input) => { this.addForm = input }} className="form-inline justify-content-center my-3" onSubmit={(e) => { this.addItem(e) }}>
             <div className="form-group">
               <label className="sr-only" htmlFor="newItemInput">Add New Item</label>
-              <input ref={(input) => {this.newItem = input}} type="text" placeholder="Bread" className="form-control" id="newItemInput" />
+              <input ref={(input) => { this.newItem = input }} type="text" placeholder="Bread" className="form-control" id="newItemInput" />
             </div>
             <button type="submit" className="btn btn-primary">Add</button>
           </form>
 
           <div className="card">
             <div className="card-block">
+              {
+                message !== '' && <div className="message text-center text-danger mt-3">{message}</div>
+              }
               <table className="table">
                 <caption className="top-caption mx-3">Shopping List</caption>
                 <thead>
