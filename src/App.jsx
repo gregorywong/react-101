@@ -95,7 +95,7 @@ export class App extends React.Component {
                 {
                   buyItems.length > 0 &&
                   <table className="table">
-                    <caption className="top-caption mx-3">Get in loser, we're going shopping!</caption>
+                    <caption className="top-caption text-center mx-3">Get in loser, we're going shopping!</caption>
                     <thead>
                       <tr>
                         <th>#</th>
