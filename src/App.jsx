@@ -29,6 +29,11 @@ export class App extends React.Component {
         message: ''
       });
     }
+    else if (buyItems.length === 0) {
+      this.setState({
+        message: 'No items on your list. Add some.'
+      });
+    }
     else {
       this.setState({
         message: ''
@@ -46,6 +51,19 @@ export class App extends React.Component {
     this.setState({
       buyItems: [...newBuyItems],
       message: ''
+    });
+
+    if (newBuyItems.length === 0) {
+      this.setState({
+        message: 'No items on your list. Add some.'
+      });
+    }
+  }
+
+  clearList() {
+    this.setState({
+      buyItems: [],
+      message: 'List cleared.'
     });
   }
 
@@ -71,35 +89,47 @@ export class App extends React.Component {
             <div className="card">
               <div className="card-block">
                 {
-                  message !== '' && <div className="message text-center text-danger mt-3">{message}</div>
+                  message !== '' && <div className="message text-center text-danger my-3">{message}</div>
                 }
-                <table className="table">
-                  <caption className="top-caption mx-3">Shopping List</caption>
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Item</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {
-                      buyItems.map(item => {
-                        return (
-                          <tr key={item}>
-                            <th scope="row">1</th>
-                            <td>{item}</td>
-                            <td className="">
-                              <button onClick={e => this.removeItem(item)} type="button" className="btn btn-small btn-danger">
-                                Remove
+
+                {
+                  buyItems.length > 0 &&
+                  <table className="table">
+                    <caption className="top-caption mx-3">Shopping List</caption>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Item</th>
+                        <th className="text-center">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {
+                        buyItems.map(item => {
+                          return (
+                            <tr key={item}>
+                              <th scope="row">1</th>
+                              <td>{item}</td>
+                              <td className="text-center">
+                                <button onClick={e => this.removeItem(item)} type="button" className="btn btn-small btn-danger">
+                                  Remove
                             </button>
-                            </td>
-                          </tr>
-                        )
-                      })
-                    }
-                  </tbody>
-                </table>
+                              </td>
+                            </tr>
+                          )
+                        })
+                      }
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colSpan="2">&nbsp;</td>
+                        <td className="text-center">
+                          <button onClick={e => this.clearList()} className="btn btn-default">Clear List</button>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                }
               </div>
             </div>
           </div>
