@@ -65,7 +65,7 @@ module.exports = {
             template: './src/index.ejs', // Load a custom template (ejs by default see the FAQ for details)
         }),
         new ExtractTextPlugin({
-            filename: "app.css",
+            filename: "./css/[name].css",
             disable: !isProd,
             allChunks: true
         }),
