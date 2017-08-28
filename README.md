@@ -1,6 +1,8 @@
 # shopping-list
 Created by following the steps in the Ihatetomatoes React 101 video tutorial.
 
+A working version can be found here: https://gregorywong.github.io/shopping-list/
+
 ## How to use the files?
 
 1. Clone this repo
